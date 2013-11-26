@@ -12,7 +12,7 @@ namespace BarterTradingWebServices.Controllers.Product
     public class DeleteProductController : ApiController
     {
         [HttpGet]
-        public ProductModel removeProduct(string token, string INid)
+        public ProductModel removeProduct(string token, int INproductID)
         {
             using (BarterTradingDBEntities db= new BarterTradingDBEntities())
             {
@@ -22,7 +22,7 @@ namespace BarterTradingWebServices.Controllers.Product
                 db.Configuration.ProxyCreationEnabled = false;
 
                 var query = from c in db.PRODUCTs
-                            where (c.productID == Convert.ToInt32(INid))
+                            where (c.productID == INproductID)
                             select c;
 
                 List<PRODUCT> OUTProducts = query.ToList();

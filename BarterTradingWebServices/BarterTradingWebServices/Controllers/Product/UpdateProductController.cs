@@ -12,7 +12,7 @@ namespace BarterTradingWebServices.Controllers.Product
     public class UpdateProductController : ApiController
     {
         [HttpGet]
-        public ProductModel UpdateProduct(string token,string INid, string INname, string INdescription, string INqty, string INstatus, string INx, string INy, string INquality, string INimageURL)
+        public ProductModel UpdateProduct(string token,int INproductID, string INname, string INdescription, string INqty, string INstatus, string INx, string INy, string INquality, string INimageURL)
         {
             using (BarterTradingDBEntities db = new BarterTradingDBEntities())
             {
@@ -22,7 +22,7 @@ namespace BarterTradingWebServices.Controllers.Product
                 db.Configuration.ProxyCreationEnabled = false;
 
                 var query = from c in db.PRODUCTs
-                            where (c.productID == Convert.ToInt32(INid))
+                            where (c.productID == INproductID)
                             select c;
                 List<PRODUCT> OUTProducts = query.ToList();
 

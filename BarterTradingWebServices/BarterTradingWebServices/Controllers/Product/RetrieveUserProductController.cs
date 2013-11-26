@@ -11,14 +11,14 @@ namespace BarterTradingWebServices.Controllers.Product
     public class RetrieveUserProductController : ApiController
     {
         [HttpGet]
-        public ProductModel GetProductByUser(string token, string id)
+        public ProductModel GetProductByUser(string token, int id)
         {
             using (BarterTradingDBEntities db = new BarterTradingDBEntities())
             {
                 db.Configuration.LazyLoadingEnabled = false;
 
                 var query = from c in db.PRODUCTs.Include("User")
-                            where (c.userID==Convert.ToInt32(id)&&(c.status.Equals(0)||c.status.Equals(1)))
+                            where (c.userID==id&&(c.status==0||c.status==1))
                             select c;
                 List<PRODUCT> OUTProducts = query.ToList();
                 if (token.Equals("token"))

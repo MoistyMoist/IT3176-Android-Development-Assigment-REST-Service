@@ -12,7 +12,7 @@ namespace BarterTradingWebServices.Controllers.Product
     public class CreateProductController : ApiController
     {
         [HttpGet]
-        public ProductModel createProduct(string token, string INname, string INdescription, string INqty, string INstatus, string INx, string INy, string INquality, string INimageURL)
+        public ProductModel createProduct(string token,int INuserID, string INname, string INdescription, string INqty, string INstatus, string INx, string INy, string INquality, string INimageURL)
         {
             using (BarterTradingDBEntities db = new BarterTradingDBEntities())
             {
@@ -33,6 +33,7 @@ namespace BarterTradingWebServices.Controllers.Product
                 newProduct.y = INy;
                 newProduct.imageURL = INimageURL;
                 newProduct.status = 0;
+                newProduct.userID = INuserID;
                
                 if(token.Equals("token"))
                 {
