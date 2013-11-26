@@ -182,7 +182,7 @@
     <Compile Include="Controllers\User\UpdateUserController.cs" />
     <Compile Include="Controllers\Utils\LoginUserController.cs" />
     <Compile Include="Controllers\Utils\UploadImageController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\Wishlist\CreateWishListController.cs" />
     <Compile Include="Controllers\Wishlist\DeleteWishListController.cs" />
     <Compile Include="Controllers\Wishlist\RetrieveWishListController.cs" />

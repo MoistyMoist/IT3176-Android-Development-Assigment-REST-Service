@@ -9,31 +9,6 @@ namespace BarterTradingWebServices.Controllers.Wishlist
 {
     public class RetrieveWishListController : ApiController
     {
-        // GET api/retrievewishlist
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/retrievewishlist/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/retrievewishlist
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/retrievewishlist/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/retrievewishlist/5
-        public void Delete(int id)
-        {
-        }
+       
     }
 }
