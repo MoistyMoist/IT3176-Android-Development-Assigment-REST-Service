@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarterTradingWebServices", "BarterTradingWebServices\BarterTradingWebServices.csproj", "{533511EF-D74F-4585-9CE2-E550DD7056E5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{37F2BA0C-17FD-48E3-A40B-6F0B4F0D6130}"
+	ProjectSection(SolutionItems) = preProject
+		BarterTrading.azurewebsites.net.PublishSettings = BarterTrading.azurewebsites.net.PublishSettings
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
