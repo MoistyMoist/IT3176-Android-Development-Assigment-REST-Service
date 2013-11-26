@@ -7,5 +7,9 @@ namespace BarterTradingWebServices.Model
 {
     public class WishlistModel
     {
+        public string message { get; set; }
+        public string status { get; set; }
+        public List<WISH> data { get; set; }
+        public List<string> errors { get; set; }
     }
 }

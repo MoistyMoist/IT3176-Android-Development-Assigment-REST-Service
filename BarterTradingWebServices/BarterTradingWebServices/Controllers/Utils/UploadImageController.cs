@@ -9,31 +9,9 @@ namespace BarterTradingWebServices.Controllers.Utils
 {
     public class UploadImageController : ApiController
     {
-        // GET api/uploadimage
-        public IEnumerable<string> Get()
+        public string UploadImage(string token, StreamContent data)
         {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/uploadimage/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/uploadimage
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/uploadimage/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/uploadimage/5
-        public void Delete(int id)
-        {
+            return "";
         }
     }
 }
