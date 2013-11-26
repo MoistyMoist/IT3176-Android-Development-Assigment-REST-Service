@@ -168,7 +168,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Product\CreateProductController.cs" />
-    <Compile Include="Controllers\Product\DeleteControllerController.cs" />
+    <Compile Include="Controllers\Product\DeleteProductController.cs" />
     <Compile Include="Controllers\Product\RetrieveAllProductController.cs" />
     <Compile Include="Controllers\Product\RetrieveProductByIDController.cs" />
     <Compile Include="Controllers\Product\RetrieveUserProductController.cs" />

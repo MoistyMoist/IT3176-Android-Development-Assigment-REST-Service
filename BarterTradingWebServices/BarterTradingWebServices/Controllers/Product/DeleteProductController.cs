@@ -9,7 +9,7 @@ using BarterTradingWebServices.Model;
 
 namespace BarterTradingWebServices.Controllers.Product
 {
-    public class DeleteControllerController : ApiController
+    public class DeleteProductController : ApiController
     {
         [HttpGet]
         public ProductModel removeProduct(string token, string INid)
