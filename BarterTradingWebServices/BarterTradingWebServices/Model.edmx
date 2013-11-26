@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BarterTradingDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BarterTradingDBModelStoreContainer">
+          <EntitySet Name="PRODUCT" EntityType="BarterTradingDBModel.Store.PRODUCT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TRANSACTION" EntityType="BarterTradingDBModel.Store.TRANSACTION" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USER" EntityType="BarterTradingDBModel.Store.USER" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WISH" EntityType="BarterTradingDBModel.Store.WISH" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_PRODUCT_0" Association="BarterTradingDBModel.Store.FK_PRODUCT_0">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACTION_0" Association="BarterTradingDBModel.Store.FK_TRANSACTION_0">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="TRANSACTION" EntitySet="TRANSACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACTION_1" Association="BarterTradingDBModel.Store.FK_TRANSACTION_1">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="TRANSACTION" EntitySet="TRANSACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACTION_2" Association="BarterTradingDBModel.Store.FK_TRANSACTION_2">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="TRANSACTION" EntitySet="TRANSACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACTION_3" Association="BarterTradingDBModel.Store.FK_TRANSACTION_3">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="TRANSACTION" EntitySet="TRANSACTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WISH_0" Association="BarterTradingDBModel.Store.FK_WISH_0">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="WISH" EntitySet="WISH" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar(max)" Nullable="false" />
+          <Property Name="description" Type="varchar(max)" Nullable="false" />
+          <Property Name="qty" Type="varchar(max)" />
+          <Property Name="status" Type="int" />
+          <Property Name="userID" Type="int" />
+          <Property Name="x" Type="varchar(max)" />
+          <Property Name="y" Type="varchar(max)" />
+          <Property Name="quality" Type="varchar(max)" />
+          <Property Name="imageURL" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="TRANSACTION">
+          <Key>
+            <PropertyRef Name="transactionID" />
+          </Key>
+          <Property Name="transactionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="productOfferID" Type="int" Nullable="false" />
+          <Property Name="productTakeID" Type="int" Nullable="false" />
+          <Property Name="status" Type="varchar(max)" Nullable="false" />
+          <Property Name="userOfferID" Type="int" Nullable="false" />
+          <Property Name="userTakeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="password" Type="varchar(max)" Nullable="false" />
+          <Property Name="nickname" Type="varchar(max)" Nullable="false" />
+          <Property Name="email" Type="varchar(max)" Nullable="false" />
+          <Property Name="contact" Type="varchar(max)" />
+          <Property Name="dob" Type="varchar(max)" />
+          <Property Name="sex" Type="varchar(max)" />
+          <Property Name="imageURL" Type="varchar(max)" />
+          <Property Name="status" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="WISH">
+          <Key>
+            <PropertyRef Name="wishID" />
+          </Key>
+          <Property Name="wishID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar(max)" Nullable="false" />
+          <Property Name="status" Type="varchar(max)" Nullable="false" />
+          <Property Name="userID" Type="int" />
+        </EntityType>
+        <Association Name="FK_PRODUCT_0">
+          <End Role="USER" Type="BarterTradingDBModel.Store.USER" Multiplicity="0..1" />
+          <End Role="PRODUCT" Type="BarterTradingDBModel.Store.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACTION_0">
+          <End Role="PRODUCT" Type="BarterTradingDBModel.Store.PRODUCT" Multiplicity="1" />
+          <End Role="TRANSACTION" Type="BarterTradingDBModel.Store.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="TRANSACTION">
+              <PropertyRef Name="productOfferID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACTION_1">
+          <End Role="PRODUCT" Type="BarterTradingDBModel.Store.PRODUCT" Multiplicity="1" />
+          <End Role="TRANSACTION" Type="BarterTradingDBModel.Store.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="TRANSACTION">
+              <PropertyRef Name="productTakeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACTION_2">
+          <End Role="USER" Type="BarterTradingDBModel.Store.USER" Multiplicity="1" />
+          <End Role="TRANSACTION" Type="BarterTradingDBModel.Store.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="TRANSACTION">
+              <PropertyRef Name="userOfferID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACTION_3">
+          <End Role="USER" Type="BarterTradingDBModel.Store.USER" Multiplicity="1" />
+          <End Role="TRANSACTION" Type="BarterTradingDBModel.Store.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="TRANSACTION">
+              <PropertyRef Name="userTakeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WISH_0">
+          <End Role="USER" Type="BarterTradingDBModel.Store.USER" Multiplicity="0..1" />
+          <End Role="WISH" Type="BarterTradingDBModel.Store.WISH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="WISH">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BarterTradingDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BarterTradingDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PRODUCTs" EntityType="BarterTradingDBModel.PRODUCT" />
+          <EntitySet Name="TRANSACTIONs" EntityType="BarterTradingDBModel.TRANSACTION" />
+          <EntitySet Name="USERs" EntityType="BarterTradingDBModel.USER" />
+          <EntitySet Name="WISHes" EntityType="BarterTradingDBModel.WISH" />
+          <AssociationSet Name="FK_PRODUCT_0" Association="BarterTradingDBModel.FK_PRODUCT_0">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACTION_0" Association="BarterTradingDBModel.FK_TRANSACTION_0">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="TRANSACTION" EntitySet="TRANSACTIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACTION_1" Association="BarterTradingDBModel.FK_TRANSACTION_1">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="TRANSACTION" EntitySet="TRANSACTIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACTION_2" Association="BarterTradingDBModel.FK_TRANSACTION_2">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="TRANSACTION" EntitySet="TRANSACTIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRANSACTION_3" Association="BarterTradingDBModel.FK_TRANSACTION_3">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="TRANSACTION" EntitySet="TRANSACTIONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WISH_0" Association="BarterTradingDBModel.FK_WISH_0">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="WISH" EntitySet="WISHes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="qty" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="userID" Type="Int32" />
+          <Property Name="x" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="y" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="quality" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="imageURL" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="USER" Relationship="BarterTradingDBModel.FK_PRODUCT_0" FromRole="PRODUCT" ToRole="USER" />
+          <NavigationProperty Name="TRANSACTIONs" Relationship="BarterTradingDBModel.FK_TRANSACTION_0" FromRole="PRODUCT" ToRole="TRANSACTION" />
+          <NavigationProperty Name="TRANSACTIONs1" Relationship="BarterTradingDBModel.FK_TRANSACTION_1" FromRole="PRODUCT" ToRole="TRANSACTION" />
+        </EntityType>
+        <EntityType Name="TRANSACTION">
+          <Key>
+            <PropertyRef Name="transactionID" />
+          </Key>
+          <Property Name="transactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productOfferID" Type="Int32" Nullable="false" />
+          <Property Name="productTakeID" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="userOfferID" Type="Int32" Nullable="false" />
+          <Property Name="userTakeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PRODUCT" Relationship="BarterTradingDBModel.FK_TRANSACTION_0" FromRole="TRANSACTION" ToRole="PRODUCT" />
+          <NavigationProperty Name="PRODUCT1" Relationship="BarterTradingDBModel.FK_TRANSACTION_1" FromRole="TRANSACTION" ToRole="PRODUCT" />
+          <NavigationProperty Name="USER" Relationship="BarterTradingDBModel.FK_TRANSACTION_2" FromRole="TRANSACTION" ToRole="USER" />
+          <NavigationProperty Name="USER1" Relationship="BarterTradingDBModel.FK_TRANSACTION_3" FromRole="TRANSACTION" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="nickname" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="contact" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="dob" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="sex" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="imageURL" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="status" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PRODUCTs" Relationship="BarterTradingDBModel.FK_PRODUCT_0" FromRole="USER" ToRole="PRODUCT" />
+          <NavigationProperty Name="TRANSACTIONs" Relationship="BarterTradingDBModel.FK_TRANSACTION_2" FromRole="USER" ToRole="TRANSACTION" />
+          <NavigationProperty Name="TRANSACTIONs1" Relationship="BarterTradingDBModel.FK_TRANSACTION_3" FromRole="USER" ToRole="TRANSACTION" />
+          <NavigationProperty Name="WISHes" Relationship="BarterTradingDBModel.FK_WISH_0" FromRole="USER" ToRole="WISH" />
+        </EntityType>
+        <EntityType Name="WISH">
+          <Key>
+            <PropertyRef Name="wishID" />
+          </Key>
+          <Property Name="wishID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="userID" Type="Int32" />
+          <NavigationProperty Name="USER" Relationship="BarterTradingDBModel.FK_WISH_0" FromRole="WISH" ToRole="USER" />
+        </EntityType>
+        <Association Name="FK_PRODUCT_0">
+          <End Role="USER" Type="BarterTradingDBModel.USER" Multiplicity="0..1" />
+          <End Role="PRODUCT" Type="BarterTradingDBModel.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACTION_0">
+          <End Role="PRODUCT" Type="BarterTradingDBModel.PRODUCT" Multiplicity="1" />
+          <End Role="TRANSACTION" Type="BarterTradingDBModel.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="TRANSACTION">
+              <PropertyRef Name="productOfferID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACTION_1">
+          <End Role="PRODUCT" Type="BarterTradingDBModel.PRODUCT" Multiplicity="1" />
+          <End Role="TRANSACTION" Type="BarterTradingDBModel.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="TRANSACTION">
+              <PropertyRef Name="productTakeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACTION_2">
+          <End Role="USER" Type="BarterTradingDBModel.USER" Multiplicity="1" />
+          <End Role="TRANSACTION" Type="BarterTradingDBModel.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="TRANSACTION">
+              <PropertyRef Name="userOfferID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRANSACTION_3">
+          <End Role="USER" Type="BarterTradingDBModel.USER" Multiplicity="1" />
+          <End Role="TRANSACTION" Type="BarterTradingDBModel.TRANSACTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="TRANSACTION">
+              <PropertyRef Name="userTakeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WISH_0">
+          <End Role="USER" Type="BarterTradingDBModel.USER" Multiplicity="0..1" />
+          <End Role="WISH" Type="BarterTradingDBModel.WISH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="WISH">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BarterTradingDBModelStoreContainer" CdmEntityContainer="BarterTradingDBEntities">
+          <EntitySetMapping Name="PRODUCTs">
+            <EntityTypeMapping TypeName="BarterTradingDBModel.PRODUCT">
+              <MappingFragment StoreEntitySet="PRODUCT">
+                <ScalarProperty Name="productID" ColumnName="productID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="x" ColumnName="x" />
+                <ScalarProperty Name="y" ColumnName="y" />
+                <ScalarProperty Name="quality" ColumnName="quality" />
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRANSACTIONs">
+            <EntityTypeMapping TypeName="BarterTradingDBModel.TRANSACTION">
+              <MappingFragment StoreEntitySet="TRANSACTION">
+                <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+                <ScalarProperty Name="productOfferID" ColumnName="productOfferID" />
+                <ScalarProperty Name="productTakeID" ColumnName="productTakeID" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="userOfferID" ColumnName="userOfferID" />
+                <ScalarProperty Name="userTakeID" ColumnName="userTakeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERs">
+            <EntityTypeMapping TypeName="BarterTradingDBModel.USER">
+              <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WISHes">
+            <EntityTypeMapping TypeName="BarterTradingDBModel.WISH">
+              <MappingFragment StoreEntitySet="WISH">
+                <ScalarProperty Name="wishID" ColumnName="wishID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

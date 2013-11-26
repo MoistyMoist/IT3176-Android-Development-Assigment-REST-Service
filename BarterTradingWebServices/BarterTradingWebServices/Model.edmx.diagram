@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="172b8187e974494f82c2e69f5b10ce78" Name="Diagram1">
+        <EntityTypeShape EntityType="BarterTradingDBModel.PRODUCT" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarterTradingDBModel.TRANSACTION" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarterTradingDBModel.USER" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BarterTradingDBModel.WISH" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="BarterTradingDBModel.FK_PRODUCT_0" ManuallyRouted="false" />
+        <AssociationConnector Association="BarterTradingDBModel.FK_TRANSACTION_0" ManuallyRouted="false" />
+        <AssociationConnector Association="BarterTradingDBModel.FK_TRANSACTION_1" ManuallyRouted="false" />
+        <AssociationConnector Association="BarterTradingDBModel.FK_TRANSACTION_2" ManuallyRouted="false" />
+        <AssociationConnector Association="BarterTradingDBModel.FK_TRANSACTION_3" ManuallyRouted="false" />
+        <AssociationConnector Association="BarterTradingDBModel.FK_WISH_0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
