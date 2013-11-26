@@ -165,7 +165,24 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Product\CreateProductController.cs" />
+    <Compile Include="Controllers\Product\DeleteControllerController.cs" />
+    <Compile Include="Controllers\Product\RetrieveProductController.cs" />
+    <Compile Include="Controllers\Product\UpdateProductController.cs" />
+    <Compile Include="Controllers\Trading\AcceptTradeRequestController.cs" />
+    <Compile Include="Controllers\Trading\RetrieveTransactionController.cs" />
+    <Compile Include="Controllers\Trading\SendTradeRequestController.cs" />
+    <Compile Include="Controllers\User\CreateUserController.cs" />
+    <Compile Include="Controllers\User\DeleteUserController.cs" />
+    <Compile Include="Controllers\User\RetrieveUserController.cs" />
+    <Compile Include="Controllers\User\UpdateUserController.cs" />
+    <Compile Include="Controllers\Utils\LoginUserController.cs" />
+    <Compile Include="Controllers\Utils\UploadImageController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\Wishlist\CreateWishListController.cs" />
+    <Compile Include="Controllers\Wishlist\DeleteWishListController.cs" />
+    <Compile Include="Controllers\Wishlist\RetrieveWishListController.cs" />
+    <Compile Include="Controllers\Wishlist\UpdateWishListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
