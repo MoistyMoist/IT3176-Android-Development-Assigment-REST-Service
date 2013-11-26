@@ -18,7 +18,7 @@ namespace BarterTradingWebServices.Controllers.Product
                 db.Configuration.LazyLoadingEnabled = false;
 
                 var query = from c in db.PRODUCTs.Include("User")
-                            where (c.productID.Equals(Convert.ToInt32(id)))
+                            where (c.productID==Convert.ToInt32(id))
                             select c;
                 List<PRODUCT> OUTProducts = query.ToList();
                 if (token.Equals("token"))
