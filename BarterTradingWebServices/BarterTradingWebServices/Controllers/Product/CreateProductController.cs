@@ -13,6 +13,10 @@ namespace BarterTradingWebServices.Controllers.Product
         [HttpGet]
         public ProductModel createProduct(string token, string INname, string INdescription, string INqty, string INstatus, string INx, string INy, string INquality, string INimageURL)
         {
+            using (BarterTradingDBEntities db = new BarterTradingDBEntities())
+            {
+
+            }
             return null;           
         }
     }

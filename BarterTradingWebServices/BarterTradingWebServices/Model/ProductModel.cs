@@ -7,9 +7,9 @@ namespace BarterTradingWebServices.Model
 {
     public class ProductModel
     {
-        public string message { get; set; }
-        public string status { get; set; }
-        public List<PRODUCT> data { get; set; }
-        public List<string> errors { get; set; }
+        public string Message { get; set; }
+        public int Status { get; set; }
+        public List<PRODUCT> Data { get; set; }
+        public List<string> Errors { get; set; }
     }
 }

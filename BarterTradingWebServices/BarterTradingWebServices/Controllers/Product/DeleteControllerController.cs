@@ -13,6 +13,10 @@ namespace BarterTradingWebServices.Controllers.Product
         [HttpGet]
         public ProductModel removeProduct(string token, string id)
         {
+            using (BarterTradingDBEntities db= new BarterTradingDBEntities())
+            {
+                
+            }
             return null;
         }
     }

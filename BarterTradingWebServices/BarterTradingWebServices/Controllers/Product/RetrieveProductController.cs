@@ -13,13 +13,116 @@ namespace BarterTradingWebServices.Controllers.Product
         [HttpGet]
         public ProductModel GetAllProducts(string token)
         {
-            return null;
+            using (BarterTradingDBEntities db = new BarterTradingDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+
+                var query = from c in db.PRODUCTs.Include("User")
+                            select c;
+                List<PRODUCT> OUTProducts = query.ToList();
+                if(token.Equals("token"))
+                {
+                    if(OUTProducts.Count()==0)
+                    {
+                        ProductModel model = new ProductModel();
+                        model.Status = 1;
+                        model.Message = "Error retrieveing products";
+                        return model;
+                    }
+                    else
+                    {
+                        ProductModel model = new ProductModel();
+                        model.Status = 1;
+                        model.Message = "Retrieve success";
+                        model.Data = OUTProducts;
+                        return model;
+                    }
+                }
+                else
+                {
+                    ProductModel model = new ProductModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+            }
+        }
+
+        [HttpGet]
+        public ProductModel GetProductByUser(string token, string id)
+        {
+            using (BarterTradingDBEntities db = new BarterTradingDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+
+                var query = from c in db.PRODUCTs.Include("User")
+                            where(c.userID.Equals(Convert.ToInt32(id)))
+                            select c;
+                List<PRODUCT> OUTProducts = query.ToList();
+                if (token.Equals("token"))
+                {
+                    if (OUTProducts.Count() == 0)
+                    {
+                        ProductModel model = new ProductModel();
+                        model.Status = 1;
+                        model.Message = "Error retrieveing products";
+                        return model;
+                    }
+                    else
+                    {
+                        ProductModel model = new ProductModel();
+                        model.Status = 1;
+                        model.Message = "Retrieve success";
+                        model.Data = OUTProducts;
+                        return model;
+                    }
+                }
+                else
+                {
+                    ProductModel model = new ProductModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
+            }
         }
 
         [HttpGet]
         public ProductModel GetProductByID(string token, string id)
         {
-            return null;
+             using (BarterTradingDBEntities db = new BarterTradingDBEntities())
+            {
+                db.Configuration.LazyLoadingEnabled = false;
+
+                var query = from c in db.PRODUCTs.Include("User")
+                            where(c.productID.Equals(Convert.ToInt32(id)))
+                            select c;
+                List<PRODUCT> OUTProducts = query.ToList();
+                if (token.Equals("token"))
+                {
+                    if (OUTProducts.Count() == 0)
+                    {
+                        ProductModel model = new ProductModel();
+                        model.Status = 1;
+                        model.Message = "Error retrieveing products";
+                        return model;
+                    }
+                    else
+                    {
+                        ProductModel model = new ProductModel();
+                        model.Status = 1;
+                        model.Message = "Retrieve success";
+                        model.Data = OUTProducts;
+                        return model;
+                    }
+                }
+                else
+                {
+                    ProductModel model = new ProductModel();
+                    model.Status = 1;
+                    model.Message = "Token error, invalid token";
+                    return model;
+                }
         }
     }
 }
