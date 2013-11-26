@@ -11,14 +11,21 @@ namespace BarterTradingWebServices
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract(IsReference = true)]
     public partial class WISH
     {
+        [DataMember(Order = 1)]
         public int wishID { get; set; }
+        [DataMember(Order = 2)]
         public string name { get; set; }
+        [DataMember(Order = 3)]
         public string status { get; set; }
+        [DataMember(Order = 4)]
         public Nullable<int> userID { get; set; }
-    
+
+        [DataMember(Order = 5)]
         public virtual USER USER { get; set; }
     }
 }

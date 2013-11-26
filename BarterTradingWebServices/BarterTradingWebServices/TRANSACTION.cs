@@ -11,19 +11,31 @@ namespace BarterTradingWebServices
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract(IsReference = true)]
     public partial class TRANSACTION
     {
+        [DataMember(Order = 1)]
         public int transactionID { get; set; }
+        [DataMember(Order = 2)]
         public int productOfferID { get; set; }
+        [DataMember(Order = 3)]
         public int productTakeID { get; set; }
+        [DataMember(Order = 4)]
         public string status { get; set; }
+        [DataMember(Order = 5)]
         public int userOfferID { get; set; }
+        [DataMember(Order = 6)]
         public int userTakeID { get; set; }
     
+        [DataMember(Order = 7)]
         public virtual PRODUCT PRODUCT { get; set; }
+        [DataMember(Order = 8)]
         public virtual PRODUCT PRODUCT1 { get; set; }
+        [DataMember(Order = 9)]
         public virtual USER USER { get; set; }
+        [DataMember(Order = 10)]
         public virtual USER USER1 { get; set; }
     }
 }

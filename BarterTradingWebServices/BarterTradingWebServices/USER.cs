@@ -11,7 +11,9 @@ namespace BarterTradingWebServices
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract(IsReference = true)]
     public partial class USER
     {
         public USER()
@@ -21,20 +23,33 @@ namespace BarterTradingWebServices
             this.TRANSACTIONs1 = new HashSet<TRANSACTION>();
             this.WISHes = new HashSet<WISH>();
         }
-    
+
+        [DataMember(Order = 1)]
         public int userID { get; set; }
+        [DataMember(Order = 2)]
         public string password { get; set; }
+        [DataMember(Order = 3)]
         public string nickname { get; set; }
+        [DataMember(Order = 4)]
         public string email { get; set; }
+        [DataMember(Order = 5)]
         public string contact { get; set; }
+        [DataMember(Order = 6)]
         public string dob { get; set; }
+        [DataMember(Order = 7)]
         public string sex { get; set; }
+        [DataMember(Order = 8)]
         public string imageURL { get; set; }
+        [DataMember(Order = 9)]
         public string status { get; set; }
-    
+
+        [DataMember(Order = 10)]
         public virtual ICollection<PRODUCT> PRODUCTs { get; set; }
+        [DataMember(Order = 11)]
         public virtual ICollection<TRANSACTION> TRANSACTIONs { get; set; }
+        [DataMember(Order = 12)]
         public virtual ICollection<TRANSACTION> TRANSACTIONs1 { get; set; }
+        [DataMember(Order = 13)]
         public virtual ICollection<WISH> WISHes { get; set; }
     }
 }
