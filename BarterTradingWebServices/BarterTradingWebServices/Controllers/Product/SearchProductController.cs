@@ -27,7 +27,7 @@ namespace BarterTradingWebServices.Controllers.Product
                    {
                        ProductModel model = new ProductModel();
                        model.Status = 1;
-                       model.Message = "Error retrieveing products";
+                       model.Message = "No such products";
                        return model;
                    }
                    else
