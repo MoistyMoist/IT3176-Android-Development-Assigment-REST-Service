@@ -33,7 +33,7 @@ namespace BarterTradingWebServices.Controllers.Product
                     else
                     {
                         ProductModel model = new ProductModel();
-                        model.Status = 1;
+                        model.Status = 0;
                         model.Message = "Retrieve success";
                         model.Data = OUTProducts;
                         return model;
