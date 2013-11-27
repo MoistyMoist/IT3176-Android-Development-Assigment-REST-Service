@@ -172,6 +172,7 @@
     <Compile Include="Controllers\Product\RetrieveAllProductController.cs" />
     <Compile Include="Controllers\Product\RetrieveProductByIDController.cs" />
     <Compile Include="Controllers\Product\RetrieveUserProductController.cs" />
+    <Compile Include="Controllers\Product\SearchProductController.cs" />
     <Compile Include="Controllers\Product\UpdateProductController.cs" />
     <Compile Include="Controllers\Trading\AcceptTradeRequestController.cs" />
     <Compile Include="Controllers\Trading\RetrieveTransactionController.cs" />
