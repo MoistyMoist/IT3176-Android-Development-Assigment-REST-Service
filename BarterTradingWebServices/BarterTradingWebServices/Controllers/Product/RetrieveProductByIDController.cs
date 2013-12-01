@@ -17,7 +17,7 @@ namespace BarterTradingWebServices.Controllers.Product
             {
                 db.Configuration.LazyLoadingEnabled = false;
 
-                var query = from c in db.PRODUCTs.Include("User")
+                var query = from c in db.PRODUCTs
                             where (c.productID==id)
                             select c;
                 List<PRODUCT> OUTProducts = query.ToList();
