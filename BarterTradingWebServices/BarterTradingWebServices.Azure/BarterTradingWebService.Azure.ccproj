@@ -11,7 +11,7 @@
     <RootNamespace>BarterTradingWebServices.Azure</RootNamespace>
     <AssemblyName>BarterTradingWebServices.Azure</AssemblyName>
     <StartDevelopmentStorage>True</StartDevelopmentStorage>
-    <Name>BarterTradingWeb.Azure</Name>
+    <Name>BarterTradingWebService.Azure</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
