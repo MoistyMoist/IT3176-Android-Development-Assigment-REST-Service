@@ -21,21 +21,11 @@ namespace BarterTradingWebServices.Controllers.Utils
 
             storageAccount.CreateCloudBlobClient();
             // Retrieve a reference to a container. 
-            CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
-            
-            // Create the container if it doesn't already exist.
+            CloudBlobContainer container = blobClient.GetContainerReference("bartertrading");
             container.CreateIfNotExists();
-                /*
-            if(container.CreateIfNotExists())
-            {
-                container.SetPermissions(
-                        new BlobContainerPermissions
-                        {
-                            PublicAccess =
-                                BlobContainerPublicAccessType.Blob
-                        });
-            }
-                */
+            // Create the container if it doesn't already exist.
+          
+
             return "dsad";
         }
     }
