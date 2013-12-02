@@ -11,7 +11,7 @@
     <RootNamespace>BarterTradingWebServices.Azure</RootNamespace>
     <AssemblyName>BarterTradingWebServices.Azure</AssemblyName>
     <StartDevelopmentStorage>True</StartDevelopmentStorage>
-    <Name>BarterTradingWebServices.Azure</Name>
+    <Name>BarterTradingWeb.Azure</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,11 +48,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BarterTradingWebServicesContent\" />
+    <Folder Include="Profiles" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="BarterTradingWebServicesContent\diagnostics.wadcfg">
       <SubType>Content</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishProfile Include="Profiles\bartertradingProduction.azurePubxml" />
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>

@@ -3,7 +3,7 @@
   <Role name="BarterTradingWebServices">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=114173s;AccountKey=SvUK2fKyNubqzRsyOpPR9aYZQXF88uao9ADonVVDHmbE8nfC7FAL504kF8SyeLz7R3kpGq4v7ZmxPQN+pn72KQ==" />
       <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=http;AccountName=114173s;AccountKey=SvUK2fKyNubqzRsyOpPR9aYZQXF88uao9ADonVVDHmbE8nfC7FAL504kF8SyeLz7R3kpGq4v7ZmxPQN+pn72KQ==" />
     </ConfigurationSettings>
   </Role>
