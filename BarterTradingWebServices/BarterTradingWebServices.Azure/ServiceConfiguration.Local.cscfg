@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="BarterTradingWebServices.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="2" osVersion="*" schemaVersion="2013-10.2.2">
+  <Role name="BarterTradingWebServices">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="StorageConnectionString" value="DefaultEndpointsProtocol=http;AccountName=114173s;AccountKey=SvUK2fKyNubqzRsyOpPR9aYZQXF88uao9ADonVVDHmbE8nfC7FAL504kF8SyeLz7R3kpGq4v7ZmxPQN+pn72KQ==" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

@@ -15,15 +15,17 @@ namespace BarterTradingWebServices.Controllers.Utils
         [HttpGet]
         public string UploadImage(string token)
         {
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse( ConfigurationManager.ConnectionStrings["StorageConnection"].ConnectionString);
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
 
             storageAccount.CreateCloudBlobClient();
             // Retrieve a reference to a container. 
-            CloudBlobContainer container = blobClient.GetContainerReference("bartertrading");
+            CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
             
             // Create the container if it doesn't already exist.
+            container.CreateIfNotExists();
+                /*
             if(container.CreateIfNotExists())
             {
                 container.SetPermissions(
@@ -33,7 +35,7 @@ namespace BarterTradingWebServices.Controllers.Utils
                                 BlobContainerPublicAccessType.Blob
                         });
             }
-
+                */
             return "dsad";
         }
     }
