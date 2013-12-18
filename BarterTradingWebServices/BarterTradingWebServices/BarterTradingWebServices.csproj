@@ -220,6 +220,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\ImageModel.cs" />
     <Compile Include="Model\ProductModel.cs" />
     <Compile Include="Model\RequestModel.cs" />
     <Compile Include="Model\UserModel.cs" />
