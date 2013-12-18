@@ -39,7 +39,7 @@ namespace BarterTradingWebServices.Controllers.Utils
                 blockBlob.UploadFromStream(stream);
             }
 
-            string url = "http://114173s.blob.core.windows.net/bartertrading/" + fileName + ".jpg";
+            string url = "http://114173s.blob.core.windows.net/bartertrading/" + fileName;
 
             ImageModel model = new ImageModel();
             model.Data = url;
