@@ -11,7 +11,7 @@ namespace BarterTradingWebServices.Controllers.User
     public class RetrieveUserController : ApiController
     {
         [HttpGet]
-        public UserModel GetProductByID(string token, string email)
+        public UserModel GetUserByEmail(string token, string email)
         {
             using (BarterTradingDBEntities db = new BarterTradingDBEntities())
             {
