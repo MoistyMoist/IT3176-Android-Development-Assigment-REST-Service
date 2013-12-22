@@ -6,42 +6,42 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace BarterTradingWebServices.Controllers.User
+namespace BarterTradingWebServices.Controllers.Wishlist
 {
-    public class RetrieveUserController : ApiController
+    public class RetrieveUserWishListController : ApiController
     {
         [HttpGet]
-        public UserModel GetUserByEmail(string token, string email)
+        public WishlistModel GetUserWishlist(string token, int userId)
         {
             using (BarterTradingDBEntities db = new BarterTradingDBEntities())
             {
                 db.Configuration.LazyLoadingEnabled = false;
 
-                var query = from c in db.USERs
-                            where (c.email.Equals(email))
+                var query = from c in db.WISHes
+                            where c.userID == userId
                             select c;
-                List<USER> OUTUser = query.ToList();
+                List<WISH> OUTWish = query.ToList();
                 if (token.Equals("token"))
                 {
-                    if (OUTUser.Count() == 0)
+                    if (OUTWish.Count() == 0)
                     {
-                        UserModel model = new UserModel();
+                        WishlistModel model = new WishlistModel();
                         model.Status = 1;
-                        model.Message = "Error retrieveing user";
+                        model.Message = "Error retrieveing products";
                         return model;
                     }
                     else
                     {
-                        UserModel model = new UserModel();
+                        WishlistModel model = new WishlistModel();
                         model.Status = 0;
                         model.Message = "Retrieve success";
-                        model.Data = OUTUser;
+                        model.Data = OUTWish;
                         return model;
                     }
                 }
                 else
                 {
-                    UserModel model = new UserModel();
+                    WishlistModel model = new WishlistModel();
                     model.Status = 1;
                     model.Message = "Token error, invalid token";
                     return model;

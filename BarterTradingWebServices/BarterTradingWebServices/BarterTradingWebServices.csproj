@@ -200,7 +200,7 @@
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\Wishlist\CreateWishListController.cs" />
     <Compile Include="Controllers\Wishlist\DeleteWishListController.cs" />
-    <Compile Include="Controllers\Wishlist\RetrieveWishListController.cs" />
+    <Compile Include="Controllers\Wishlist\RetrieveUserWishListController.cs" />
     <Compile Include="Controllers\Wishlist\UpdateWishListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
