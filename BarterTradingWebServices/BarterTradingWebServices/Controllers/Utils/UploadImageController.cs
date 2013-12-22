@@ -19,8 +19,8 @@ namespace BarterTradingWebServices.Controllers.Utils
         [HttpPost]
         public ImageModel postTest([FromBody] string base64)
         {
-            DateTime date = new DateTime();
-            string fileName = date.ToString();
+                DateTime date = DateTime.Now;
+                string fileName = date.ToString();
 
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -46,9 +46,6 @@ namespace BarterTradingWebServices.Controllers.Utils
             model.Message = base64.Length.ToString();
             model.Status = 1;
             return model;
-
-
-
         }
     }
 }
