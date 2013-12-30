@@ -1,5 +1,7 @@
-﻿using System;
+﻿using BarterTradingWebServices.Model;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -9,10 +11,8 @@ namespace BarterTradingWebServices.Controllers.User
 {
     public class CreateUserController : ApiController
     {
-
-        /*
         [HttpGet]
-        public UserModel createProduct(string token, string password, string nickname, string email, string contact, string dob, string sex, string imageURL string status)
+        public UserModel createUser(string token, string INemail, string INnickname, string INcontact, string INdob, string INsex, string INimageurl, string INstatus)
         {
             using (BarterTradingDBEntities db = new BarterTradingDBEntities())
             {
@@ -21,23 +21,21 @@ namespace BarterTradingWebServices.Controllers.User
                 db.Configuration.LazyLoadingEnabled = false;
                 db.Configuration.ProxyCreationEnabled = false;
 
-                var query = db.PRODUCTs;
-                List<PRODUCT> OUTProducts = query.ToList();
+                var query = db.USERs;
+                List<USER> OUTUser = query.ToList();
 
                 USER newUser = new USER();
-                newUser.password = ;
-                newUser.description = INdescription;
-                newUser.qty = INqty;
-                newUser.quality = INquality;
-                newUser.x = INx;
-                newProduct.y = INy;
-                newProduct.imageURL = INimageURL;
-                newProduct.status = 0;
-                newProduct.userID = INuserID;
+                newUser.email = INemail;
+                newUser.nickname = INnickname;
+                newUser.contact = INcontact;
+                newUser.dob = INdob;
+                newUser.sex = INsex;
+                newUser.imageURL = INimageurl;
+                newUser.status = INstatus;
 
                 if (token.Equals("token"))
                 {
-                    query.Add(newProduct);
+                    query.Add(newUser);
                     try
                     {
                         result = db.SaveChanges();
@@ -68,9 +66,9 @@ namespace BarterTradingWebServices.Controllers.User
                     {
                         UserModel model = new UserModel();
                         model.Status = 0;
-                        model.Message = "Product added successfullt";
+                        model.Message = "User added successfullt";
                         model.Errors = errors;
-                        model.Data = new List<USER> { newProduct };
+                        model.Data = new List<USER> { newUser };
                         return model;
                     }
                 }
@@ -82,6 +80,6 @@ namespace BarterTradingWebServices.Controllers.User
                     return model;
                 }
             }
-        } **/
+        }
     }
 }
