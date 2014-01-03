@@ -18,7 +18,7 @@ namespace BarterTradingWebServices.Controllers.Trading
                 db.Configuration.LazyLoadingEnabled = false;
 
                 var query = from c in db.TRANSACTIONs
-                            where (c.userTakeID.Equals(userID))
+                            where (c.userOfferID.Equals(userID))
                             select c;
                 List<TRANSACTION> OUTtrade = query.ToList();
                 if (token.Equals("token"))
