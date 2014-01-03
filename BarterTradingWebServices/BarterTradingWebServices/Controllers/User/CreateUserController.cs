@@ -12,7 +12,7 @@ namespace BarterTradingWebServices.Controllers.User
     public class CreateUserController : ApiController
     {
         [HttpGet]
-        public UserModel createUser(string token, string INemail, string INnickname, string INcontact, string INdob, string INsex, string INimageurl, string INstatus)
+        public UserModel createUser(string token, string INemail, string INpassword, string INnickname, string INcontact, string INdob, string INsex, string INimageurl, string INstatus)
         {
             using (BarterTradingDBEntities db = new BarterTradingDBEntities())
             {
@@ -26,6 +26,7 @@ namespace BarterTradingWebServices.Controllers.User
 
                 USER newUser = new USER();
                 newUser.email = INemail;
+                newUser.password = INpassword;
                 newUser.nickname = INnickname;
                 newUser.contact = INcontact;
                 newUser.dob = INdob;
